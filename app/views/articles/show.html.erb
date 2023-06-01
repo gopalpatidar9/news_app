@@ -1,0 +1,36 @@
+<h1><%= @article.title %></h1>
+
+<p><%= @article.content %></p>
+
+<img  src=" <%= @article.file %> " style="width: 500px; height : 500px" class="rounded" alt="..." style="width: 500px; height: 500px;">
+
+
+<p>Written by <%= @article.user.email %></p>
+
+<% if current_user && current_user.likes.exists?(article_id: @article.id) %>
+  <%= button_to 'Unlike', unlike_article_path(@article), method: :post %>
+<% else %>
+  <%= button_to 'Like', like_article_path(@article), method: :post %>
+<% end %>
+
+<% if user_signed_in? %>
+  <% if current_user.bookmarks.exists?(article: @article) %>
+    <%= button_to "Unbookmark", unbookmark_article_path(@article), method: :delete %>
+  <% else %>
+    <%= button_to "Bookmark", bookmark_article_path(@article), method: :post %>
+  <% end %>
+<% end %>
+
+<p>Views: <%= @article.article_views.find_by(user: current_user)&.view_count || 0  %></p>
+
+<%= link_to 'profile' , show_user_profile_profile_path(@article.user.profile.id) %>
+
+<% if can? :update, @article %>
+  <%= link_to "Edit", edit_article_path(@article) %> |
+<% end %>
+
+<%= render 'articles/star'%>
+ 
+
+<%= link_to "Back", articles_path %>
+

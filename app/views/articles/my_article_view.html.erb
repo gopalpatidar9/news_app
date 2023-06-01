@@ -1,0 +1,319 @@
+<!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.css"
+  rel="stylesheet"
+/>
+
+<%= javascript_include_tag 'https://cdn.jsdelivr.net/npm/chart.js' %>
+
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 0px; border: solid 1px; border-color:#DEDDDD ;">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        
+      </a>
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#"><%= link_to '' , my_article_article_path , class:'fa fa-solid fa-arrow-left text-decoration-none'%></a>
+        </li>
+        
+      </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+
+    <!-- Right elements -->
+    <div class="d-flex align-items-center">
+      
+
+      <!-- Notifications -->
+      <div class="dropdown">
+        <a
+          class="text-reset me-3 dropdown-toggle hidden-arrow"
+          href="#"
+          id="navbarDropdownMenuLink"
+          role="button"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <i class="fas fa-bell"></i>
+          <span class="badge rounded-pill badge-notification bg-danger">1</span>
+        </a>
+        <ul
+          class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="navbarDropdownMenuLink"
+        >
+          <li>
+            <a class="dropdown-item" href="#">Some news</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Another news</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </li>
+        </ul>
+      </div>
+      <!-- Avatar -->
+      <div class="dropdown">
+        <a
+          class="dropdown-toggle d-flex align-items-center hidden-arrow"
+          href="#"
+          id="navbarDropdownMenuAvatar"
+          role="button"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+            class="rounded-circle"
+            height="25"
+            alt="Black and White Portrait of a Man"
+            loading="lazy"
+          />
+        </a>
+        <ul
+          class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="navbarDropdownMenuAvatar"
+        >
+          <li>
+            <a class="dropdown-item" href="#">My profile</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Settings</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Right elements -->
+  </div>
+  <!-- Container wrapper -->
+</nav><br><br><br>
+<div class="container mt-5">
+    <div class="card mb-3" style="max-width:; border:; box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 0px;">
+    <div class="row g-0">
+        <div class="col-md-1">
+            <img src="<%= @article.file%>" alt="Trendy Pants and Shoes" class=" rounded" style="height:150px; width:150px;"/>
+        </div>
+        <div class="col ml-5">
+            <div class="card-body">
+                <p class="card-text" style="font-size:23px; color:black;"><%= @article.title.truncate(150) %></p>
+                <p class="card-text text-muted" style="font-style: oblique;">Published by <%= @article.user.profile.name %> <%= @article.created_at.strftime(" %d  %B, %Y")%></p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-none mt-5">
+      <div class="container-fluid">
+        <ul class="navbar-nav">
+        </ul>   
+             <!-- Tabs navs -->
+              <ul class="nav nav-tabs mb-3" id="ex1" role="tablist">
+                <li class="nav-item " role="presentation">
+                  <a class="nav-link active text-decoration-none" id="ex1-tab-1" data-mdb-toggle="tab" href="#ex1-tabs-1" role="tab" aria-controls="ex1-tabs-1" aria-selected="true">All time</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link text-decoration-none" id="ex1-tab-2" data-mdb-toggle="tab" href="#ex1-tabs-2" role="tab" aria-controls="ex1-tabs-2" aria-selected="true">Last 24 hours</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link text-decoration-none" id="ex1-tab-3" data-mdb-toggle="tab" href="#ex1-tabs-3" role="tab" aria-controls="ex1-tabs-3" aria-selected="true">Last 7 days</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link text-decoration-none" id="ex1-tab-4" data-mdb-toggle="tab" href="#ex1-tabs-4" role="tab" aria-controls="ex1-tabs-4" aria-selected="true">Last 1 months</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link text-decoration-none" id="ex1-tab-5" data-mdb-toggle="tab" href="#ex1-tabs-5" role="tab" aria-controls="ex1-tabs-5" aria-selected="true">Last 3 months</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link text-decoration-none" id="ex1-tab-6" data-mdb-toggle="tab" href="#ex1-tabs-6" role="tab" aria-controls="ex1-tabs-6" aria-selected="true">Last 6 months</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link text-decoration-none" id="ex1-tab-7" data-mdb-toggle="tab" href="#ex1-tabs-7" role="tab" aria-controls="ex1-tabs-7" aria-selected="true">Last 12 months</a>
+                </li>
+             </ul>
+      </div>   
+    </nav>  
+      <div class="tab-content" id="ex1-content" >
+        <div class="tab-pane fade show active" id="ex1-tabs-1" role="tabpanel" aria-labelledby="ex1-tab-1" style="height:360px;">
+          <canvas id="article-views-chart"></canvas>
+        </div>
+        <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2" style="height:360px">
+          <canvas id="articleViewsByDayChart"></canvas>
+        </div>
+        <div class="tab-pane fade" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3" style="height:360px">
+          <center>
+            <%= image_tag 'nov.png' , class:'mt-4' , style:"width:200px;"%>
+            <p class="mt-3" style="font-size:25px;">There's no data to show</p>
+            <p class="mt-2 text-secondary" style="font-size:19px;">Try again later or select a different time period.</p>
+          </center>
+        </div>
+        <div class="tab-pane fade" id="ex1-tabs-4" role="tabpanel" aria-labelledby="ex1-tab-4" style="height:360px">
+          <canvas id="articleViewsByMonthChart"></canvas>
+        </div>
+        <div class="tab-pane fade" id="ex1-tabs-5" role="tabpanel" aria-labelledby="ex1-tab-5" style="height:360px">
+          Tab 5 content
+        </div>
+        <div class="tab-pane fade" id="ex1-tabs-6" role="tabpanel" aria-labelledby="ex1-tab-6" style="height:360px">
+          Tab 6 content
+        </div>
+        <div class="tab-pane fade" id="ex1-tabs-7" role="tabpanel" aria-labelledby="ex1-tab-7" style="height:360px">
+          Tab 7 content
+        </div>
+      </div>
+      <p class="text-end text-primary mt-1">MORE ANALYTICS</p>
+    </div>
+
+
+
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.js"
+></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  var articleViewsByDay = <%= raw @article_views_by_day.to_json %>;
+  var articleViewsByMonth = <%= raw @article_views_by_month.to_json %>;
+
+  var ctxByDay = document.getElementById('articleViewsByDayChart').getContext('2d');
+  new Chart(ctxByDay, {
+    type: 'line',
+    data: {
+      labels: Object.keys(articleViewsByDay),
+      datasets: [{
+        label: 'Article Views by Day',
+        data: Object.values(articleViewsByDay),
+        fill: false,
+        borderColor: 'rgba(75, 192, 192, 1)', // Customize the line color as needed
+        borderWidth: 1
+      }]
+    },
+     options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: {
+            display: true,
+            title: {
+              display: true,
+              text: "Date"
+            }
+          },
+          y: {
+            display: true,
+            title: {
+              display: true,
+              text: "Views"
+            }
+          }
+        }
+      }
+  });
+
+  var ctxByMonth = document.getElementById('articleViewsByMonthChart').getContext('2d');
+  new Chart(ctxByMonth, {
+    type: 'line',
+    data: {
+      labels: Object.keys(articleViewsByMonth),
+      datasets: [{
+        label: 'Article Views by Month',
+        data: Object.values(articleViewsByMonth),
+        fill: false,
+        borderColor: 'rgba(75, 192, 192, 1)', // Customize the line color as needed
+        borderWidth: 1
+      }]
+    },
+     options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: {
+            display: true,
+            title: {
+              display: true,
+              text: "Date"
+            }
+          },
+          y: {
+            display: true,
+            title: {
+              display: true,
+              text: "Views"
+            }
+          }
+        }
+      }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    var articleViewsData = <%= raw @article_views_data.to_json %>;
+    var dates = Object.keys(articleViewsData);
+    var viewCounts = Object.values(articleViewsData);
+
+    var ctx = document.getElementById("article-views-chart").getContext("2d");
+    new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: dates,
+        datasets: [{
+          label: "Article Views",
+          data: viewCounts,
+          borderColor: "rgba(75, 192, 192, 1)",
+          backgroundColor: "rgba(75, 192, 192, 0.2)",
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: {
+            display: true,
+            title: {
+              display: true,
+              text: "Date"
+            }
+          },
+          y: {
+            display: true,
+            title: {
+              display: true,
+              text: "Views"
+            }
+          }
+        }
+      }
+    });
+  });
+</script>

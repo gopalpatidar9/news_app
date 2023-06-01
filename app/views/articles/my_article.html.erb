@@ -1,0 +1,348 @@
+<!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.css"
+  rel="stylesheet"
+/>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 215px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  border: solid 1px #D0D0D0;
+  overflow-x: hidden;
+  padding-top: 8px;
+  margin-top:54px;
+}
+
+
+.main {
+  margin-left: 210px; /* Same as the width of the sidenav */
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.nav-item:hover{
+    background:#EFF0F0;
+}
+
+.nav-link:focus{
+    color:#0146BF;
+}
+
+.card:hover{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+</style>
+</head>
+<body>
+
+<div class="sidenav">
+ <div class="pb-2" style="border-bottom: 1px solid #DEDDDD;">
+  <div class="btn text-center ml-3 pl-5 pr-5 mb-1 mt-1" style="background-color:#0146BF;"> 
+   <i class="fa-solid fa-plus" style="color:#fff; font-size:17px;">&nbsp
+   </i><%= link_to ' New Post' , new_article_path  , style:' text-decoration:none; color:#fff; '%>
+  </div>    
+ </div>
+  <div class="" id="ex1" role="tablist">
+  <div class="nav-item  mt-4 pb-2 pt-2" role="presentation">
+    <a class="nav-link active ml-4" id="ex1-tab-1" data-mdb-toggle="tab" href="#ex1-tabs-1" role="tab" aria-controls="ex1-tabs-1" aria-selected="true" style="text-decoration:none; font-size:20px; color:;"><i class="fa-solid fa-newspaper" style="font-size:20px;"></i>&nbsp Posts</a>
+  </div>
+  <div class="nav-item mt-3 pb-2 pt-2" role="presentation">
+    <a
+      class="nav-link ml-4"
+      id="ex1-tab-2"
+      data-mdb-toggle="tab"
+      href="#ex1-tabs-2"
+      role="tab"
+      aria-controls="ex1-tabs-2"
+      aria-selected="false"
+      style="text-decoration:none; font-size:20px; color:;"
+      ><i class="fa-solid fa-chart-column"></i>&nbsp Stats</a
+    >
+  </div>
+  <div class="nav-item mt-3 pb-2 pt-2" role="presentation">
+    <a
+      class="nav-link ml-4"
+      id="ex1-tab-3"
+      data-mdb-toggle="tab"
+      href="#ex1-tabs-3"
+      role="tab"
+      aria-controls="ex1-tabs-3"
+      aria-selected="false"
+      style="text-decoration:none; font-size:20px;color:;"
+      ><i class="fa-solid fa-message"></i>&nbsp Comments</a
+    >
+  </div>
+  <div class="nav-item mt-3 pb-2 pt-2" role="presentation">
+    <a
+      class="nav-link ml-4"
+      id="ex1-tab-4"
+      data-mdb-toggle="tab"
+      href="#ex1-tabs-4"
+      role="tab"
+      aria-controls="ex1-tabs-4"
+      aria-selected="false"
+      style="text-decoration:none; font-size:20px;color:;"
+      ><i class="fa-sharp fa-solid fa-file-lines"></i></i>&nbsp Pages</a
+    >
+  </div>
+  <div class="nav-item mt-3 pb-2 pt-2" role="presentation">
+    <a
+      class="nav-link ml-4"
+      id="ex1-tab-5"
+      data-mdb-toggle="tab"
+      href="#ex1-tabs-5"
+      role="tab"
+      aria-controls="ex1-tabs-5"
+      aria-selected="false"
+      style="text-decoration:none; font-size:20px;color:;"
+      ><i class="fa-solid fa-table"></i>&nbsp Layout</a
+    >
+  </div>
+  <div class="nav-item mt-3 pb-2 pt-2" role="presentation">
+    <a
+      class="nav-link ml-4"
+      id="ex1-tab-6"
+      data-mdb-toggle="tab"
+      href="#ex1-tabs-6"
+      role="tab"
+      aria-controls="ex1-tabs-6"
+      aria-selected="false"
+      style="text-decoration:none; font-size:20px;color:;"
+      ><i class="fa-solid fa-gear"></i>&nbsp Setting</a
+    >
+  </div>
+  <div class="nav-item mt-3 pb-2 pt-2" role="presentation">
+    <a
+      class="nav-link ml-4"
+      id="ex1-tab-7"
+      data-mdb-toggle="tab"
+      href="#ex1-tabs-7"
+      role="tab"
+      aria-controls="ex1-tabs-7"
+      aria-selected="false"
+      style="text-decoration:none; font-size:20px;color:;"
+      ><i class="fa-solid fa-bookmark"></i>&nbsp Reading List</a
+    >
+  </div>
+</div>
+</div>
+
+<div class="main">
+<!-- Navbar -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 0px; border: solid 1px; border-color:#DEDDDD ; height:55px;">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        
+      </a>
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-decoration-none" href="#" style="font-size:30px; color:#0146BF;"><i class="fa-brands fa-slack fa-spin" style="color:#0146BF; font-size:35px;"></i>&nbsp News App </a>
+        </li>
+        
+      </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+
+    <!-- Right elements -->
+    <div class="d-flex align-items-center">
+      
+
+      <!-- Notifications -->
+      <div class="dropdown">
+        <a
+          class="text-reset me-3 dropdown-toggle hidden-arrow"
+          href="#"
+          id="navbarDropdownMenuLink"
+          role="button"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <i class="fas fa-bell"></i>
+          <span class="badge rounded-pill badge-notification bg-danger">1</span>
+        </a>
+        <ul
+          class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="navbarDropdownMenuLink"
+        >
+          <li>
+            <a class="dropdown-item" href="#">Some news</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Another news</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </li>
+        </ul>
+      </div>
+      <!-- Avatar -->
+      <div class="dropdown">
+        <a
+          class="dropdown-toggle d-flex align-items-center hidden-arrow"
+          href="#"
+          id="navbarDropdownMenuAvatar"
+          role="button"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+            class="rounded-circle"
+            height="25"
+            alt="Black and White Portrait of a Man"
+            loading="lazy"
+          />
+        </a>
+        <ul
+          class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="navbarDropdownMenuAvatar"
+        >
+          <li>
+            <a class=""><%= link_to 'My Profile' , @profile , class:'dropdown-item text-decoration-none'%></a>
+          </li>
+          <li>
+            <a class="dropdown-item text-decoration-none" href="#">Settings</a>
+          </li>
+          <li>
+            <a class=""><%= link_to 'Logout', destroy_user_session_path, class:"dropdown-item text-decoration-none" ,style:'', method: :delete %></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Right elements -->
+  </div>
+  <!-- Container wrapper -->
+</nav><br>
+<!-- Navbar -->
+<div class="container mt-5">  
+<!-- Tabs content -->
+<div class="tab-content mt-5" id="ex1-content" style="border:none;">
+  <div class="tab-pane fade show active" id="ex1-tabs-1" role="tabpanel" aria-labelledby="ex1-tab-1">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-none">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                <!-- Dropdown -->
+                    <select class="form-select border-0 shadow-none" aria-label="Default select example" style="width:130px;" >
+                    <option selected>All (<%= @my_article.count %>)</option>
+                    <option value="1">Published (4)</option>
+                    <option value="2">Shaduled (0)</option>
+                    <option value="3">Bin (0)</option>
+                    </select>
+                </ul>
+                <div>
+                    <i class="fa-solid fa-receipt mr-3 text-primary"></i>
+                    <a href="#" class="text-primary text-decoration-none">MANAGE</a> 
+                </div>
+            </div>
+        </nav>
+    <% @my_article.each do |article| %>
+     <div class="card mb-3" style="max-width:; border: solid 1px #D0D0D0 ; box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 0px;">
+        <div class="row g-0">
+            <div class="col-md-1">
+            <img src="<%= article.file%>" alt="Trendy Pants and Shoes" class="img-fluid rounded mt-3 ml-3 mb-3" style="height:90px; width:90px;"/>
+            </div>
+            <div class="col ml-4">
+            <div class="card-body">
+                <p class="card-text" style="font-size:17px;"><b><%= article.title.truncate(110) %></b><i class="fa-solid fa-eye " data-bs-toggle="tooltip"  title="View" style="float:right;"></i><i class="fa-solid fa-trash mr-4" data-bs-toggle="tooltip"  title="Remove this post" style="float:right;"></i><i class="fa-solid fa-tag mr-4" data-bs-toggle="tooltip"  title="Tag Labels" style="float:right;" ></i><i class="fa-solid fa-paper-plane mr-4" data-bs-toggle="tooltip"  title="Send this Post" style="float:right;"></i></p>
+                <p class="card-text">
+                <small class="text-muted">Published : <%= article.created_at.strftime(" %d  %B, %Y")%></small>
+                <i class="" data-bs-toggle="tooltip"  title="View count" style="float:right; color:gray;"><%= link_to '' , my_article_view_article_path(article) , class:'fa-solid fa-chart-column mt-2 text-decoration-none' , style:"color:gray;" %></i><small style="float:right;" class="mr-1 mt-2"><%= article.article_views.count %></small>
+                <i class="fa-solid fa-message mr-3 mt-2" data-bs-toggle="tooltip"  title="Comment count" style="float:right; color:gray;"></i><small style="float:right;" class="mr-1 mt-2">100</small>
+                <i class="fa-solid fa-heart mr-3 mt-2" data-bs-toggle="tooltip"  title="Like count" style="float:right; color:gray;"></i><small style="float:right;" class="mr-1 mt-2"><%= article.likes.count %></small>
+                </p>
+            </div>
+            </div>
+        </div>
+     </div>
+    <% end %>
+  </div>
+  <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
+    <div class="card border shadow-none">
+      <div class="text-center mt-5 mb-5">
+        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Total number of followers" class="mr-3 border-end pt-4 pb-4 pr-4" style="color:green;"><i class="fa-solid fa-users mr-3" style="color:gray;"></i> 2 Followers</span>
+        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Total number of posts" class="mr-3 border-end pt-4 pb-4 pr-4" style="color:green;"><i class="fa-regular fa-newspaper mr-2" style="color:gray;"></i> <%= @my_article.count %><%= link_to 'Posts' , my_article_article_path, class:'ml-1 text-decoration-none' , style:'color:green;'%></span>
+        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Total number of comments" class="pt-4 pb-4 pr-4" style="color:green;"><i class="fa-solid fa-comments mr-3" style="color:gray;"></i> 2 Comments</span>
+      </div>
+    </div>
+  <div class="card border shadow-none mt-4">
+      <div class="text-center mt-5 mb-5">
+        <span class="mr-3 border-end pt-4 pb-4 pr-4" style="color:;">All time <b class="ml-2" style="font-size:18px;">100</b><i class="fa-solid fa-eye ml-2" style="color:#C6C6C6;"></i></span>
+        <span class="mr-3 border-end pt-4 pb-4 pr-4" style="color:;">Today <b class="ml-2" style="font-size:18px;">100</b><i class="fa-solid fa-eye ml-2" style="color:#C6C6C6;"></i></span>
+        <span class="mr-3 border-end pt-4 pb-4 pr-4" style="color:;">Yesterday <b class="ml-2" style="font-size:18px;">100</b><i class="fa-solid fa-eye ml-2" style="color:#C6C6C6;"></i></span>
+        <span class="mr-3 border-end pt-4 pb-4 pr-4" style="color:;">This month <b class="ml-2" style="font-size:18px;">100</b><i class="fa-solid fa-eye ml-2" style="color:#C6C6C6;"></i></span>
+        <span class="mr-3 border-end pt-4 pb-4 pr-4" style="color:;">Last month <b class="ml-2" style="font-size:18px;">100</b><i class="fa-solid fa-eye ml-2" style="color:#C6C6C6;"></i></span>
+      </div>
+  </div>
+</div>
+  <div class="tab-pane fade" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">
+    Tab 3 content
+  </div>
+  <div class="tab-pane fade" id="ex1-tabs-4" role="tabpanel" aria-labelledby="ex1-tab-4">
+    Tab 4 content
+  </div>
+  <div class="tab-pane fade" id="ex1-tabs-5" role="tabpanel" aria-labelledby="ex1-tab-5">
+    Tab 5 content
+  </div>
+  <div class="tab-pane fade" id="ex1-tabs-6" role="tabpanel" aria-labelledby="ex1-tab-6">
+    Tab 6 content
+  </div>
+</div>
+<!-- Tabs content -->
+</div>
+</div> 
+
+</body>
+</html> 
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.js"
+></script>
+
+

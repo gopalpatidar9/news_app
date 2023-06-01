@@ -1,0 +1,2 @@
+module TechnologyesHelper
+end
