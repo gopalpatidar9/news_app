@@ -387,8 +387,44 @@ a:link{
 </div>
 <% end %>
 <% end %><br>
-<%= render 'articles/articletype'%>
-
+<ul class="nav nav-tabs mb-3" id="ex1" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link active" id="ex1-tab-4" data-mdb-toggle="tab" href="#ex1-tabs-4" role="tab"  aria-controls="ex1-tabs-4"  aria-selected="true">All</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="ex1-tab-5" data-mdb-toggle="tab" href="#ex1-tabs-5" role="tab" aria-controls="ex1-tabs-5" aria-selected="false">Sports</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="ex1-tab-6" data-mdb-toggle="tab" href="#ex1-tabs-6" role="tab" aria-controls="ex1-tabs-6" aria-selected="false">Politics</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="ex1-tab-7" data-mdb-toggle="tab" href="#ex1-tabs-7" role="tab" aria-controls="ex1-tabs-7" aria-selected="false">Technology</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="ex1-tab-8" data-mdb-toggle="tab" href="#ex1-tabs-8" role="tab" aria-controls="ex1-tabs-8" aria-selected="false">Governments</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="ex1-tab-9" data-mdb-toggle="tab" href="#ex1-tabs-9" role="tab" aria-controls="ex1-tabs-9" aria-selected="false">Healths</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="ex1-tab-10" data-mdb-toggle="tab" href="#ex1-tabs-10" role="tab" aria-controls="ex1-tabs-10" aria-selected="false">Businesses</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="ex1-tab-11" data-mdb-toggle="tab" href="#ex1-tabs-11" role="tab" aria-controls="ex1-tabs-11" aria-selected="false">Automobiles</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="ex1-tab-12" data-mdb-toggle="tab" href="#ex1-tabs-12" role="tab" aria-controls="ex1-tabs-12" aria-selected="false">Education</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="ex1-tab-13" data-mdb-toggle="tab" href="#ex1-tabs-13" role="tab" aria-controls="ex1-tabs-13" aria-selected="false">Entertentment</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="ex1-tab-14" data-mdb-toggle="tab" href="#ex1-tabs-14" role="tab" aria-controls="ex1-tabs-14" aria-selected="false">Environment</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="ex1-tab-15" data-mdb-toggle="tab" href="#ex1-tabs-15" role="tab" aria-controls="ex1-tabs-15" aria-selected="false">ECONOMY</a>
+  </li>
+</ul>
 
 
 <section style="background-color:;">
@@ -464,25 +500,260 @@ a:link{
       </div>
       <div class="col-lg-7">
       <div class=" mr-4" style="border:;"><%= render 'articles/searchbar'%></div>
-      <% @articles.each do |article| %>
-          <div class="card mr-4" style="border:;">
-            <div class="row g-0">
-              <div class="col-md-3">
-              <img src="<%= article.file %>" class="img-fluid rounded-start mt-3 ml-3" alt="..." style="height:200px; width:220px;"> 
-              </div>
-              <div class="col-md-9">
-                  <p style="color:green"><small class=" mr-2 mt-1" style="float:right;">Published On <%= article.created_at.strftime("%d  %B, %Y") %></small></p>
-                <div class="card-body">
-                  <p class="card- text-muted" style="font-size:20px;"><%= article.title.truncate(250) %></p> 
+      <div class="tab-content border-0" id="ex1-content" style="margin-top:-29px;">
+        <div class="tab-pane fade show active" id="ex1-tabs-4" role="tabpanel" aria-labelledby="ex1-tab-4">
+            <% @articles.each do |article| %>
+                <div class="card mr-4" style="border:;">
+                    <div class="row g-0">
+                    <div class="col-md-3">
+                    <img src="<%= article.file %>" class="img-fluid rounded-start mt-3 ml-3" alt="..." style="height:200px; width:220px;"> 
+                    </div>
+                    <div class="col-md-9">
+                        <p style="color:green"><small class=" mr-2 mt-1" style="float:right;">Published On <%= article.created_at.strftime("%d  %B, %Y") %></small></p>
+                        <div class="card-body">
+                        <p class="card- text-muted" style="font-size:20px;"><%= article.title.truncate(250) %></p> 
+                        </div>
+                    </div>
+                        <div class="card-footer text-muted">
+                            <i class="fa fa-star mr-1" style="color:#ff9c1a;"></i><a class="" style=""><%= article.average_rating %></a>
+                            <a class="" style=""><%= link_to 'READ MORE' , article , style:"font-size:17px;color:#0146BF; float:right;" %></a>
+                        </div>
+                    </div>  
                 </div>
-              </div>
-                <div class="card-footer text-muted">
-                    <i class="fa fa-star mr-1" style="color:#ff9c1a;"></i><a class="" style=""><%= article.average_rating %></a>
-                    <a class="" style=""><%= link_to 'READ MORE' , article , style:"font-size:17px;color:#0146BF; float:right;" %></a>
+            <% end %>
+        </div>
+        <div class="tab-pane fade" id="ex1-tabs-5" role="tabpanel" aria-labelledby="ex1-tab-5">
+            <% @sport_articles.each do |article| %>
+              <div class="card mr-4" style="border:;">
+                    <div class="row g-0">
+                    <div class="col-md-3">
+                    <img src="<%= article.file %>" class="img-fluid rounded-start mt-3 ml-3" alt="..." style="height:200px; width:220px;"> 
+                    </div>
+                    <div class="col-md-9">
+                        <p style="color:green"><small class=" mr-2 mt-1" style="float:right;">Published On <%= article.created_at.strftime("%d  %B, %Y") %></small></p>
+                        <div class="card-body">
+                        <p class="card- text-muted" style="font-size:20px;"><%= article.title.truncate(250) %></p> 
+                        </div>
+                    </div>
+                        <div class="card-footer text-muted">
+                            <i class="fa fa-star mr-1" style="color:#ff9c1a;"></i><a class="" style=""><%= article.average_rating %></a>
+                            <a class="" style=""><%= link_to 'READ MORE' , article , style:"font-size:17px;color:#0146BF; float:right;" %></a>
+                        </div>
+                    </div>  
                 </div>
-            </div>  
-          </div>
-      <% end %>
+            <% end %>
+        </div>
+        <div class="tab-pane fade" id="ex1-tabs-6" role="tabpanel" aria-labelledby="ex1-tab-6">
+            <% @politics_articles.each do |article| %>
+              <div class="card mr-4" style="border:;">
+                    <div class="row g-0">
+                    <div class="col-md-3">
+                    <img src="<%= article.file %>" class="img-fluid rounded-start mt-3 ml-3" alt="..." style="height:200px; width:220px;"> 
+                    </div>
+                    <div class="col-md-9">
+                        <p style="color:green"><small class=" mr-2 mt-1" style="float:right;">Published On <%= article.created_at.strftime("%d  %B, %Y") %></small></p>
+                        <div class="card-body">
+                        <p class="card- text-muted" style="font-size:20px;"><%= article.title.truncate(250) %></p> 
+                        </div>
+                    </div>
+                        <div class="card-footer text-muted">
+                            <i class="fa fa-star mr-1" style="color:#ff9c1a;"></i><a class="" style=""><%= article.average_rating %></a>
+                            <a class="" style=""><%= link_to 'READ MORE' , article , style:"font-size:17px;color:#0146BF; float:right;" %></a>
+                        </div>
+                    </div>  
+                </div>
+            <% end %>
+        </div>
+        <div class="tab-pane fade" id="ex1-tabs-7" role="tabpanel" aria-labelledby="ex1-tab-7">
+            <% @technology_articles.each do |article| %>
+              <div class="card mr-4" style="border:;">
+                    <div class="row g-0">
+                    <div class="col-md-3">
+                    <img src="<%= article.file %>" class="img-fluid rounded-start mt-3 ml-3" alt="..." style="height:200px; width:220px;"> 
+                    </div>
+                    <div class="col-md-9">
+                        <p style="color:green"><small class=" mr-2 mt-1" style="float:right;">Published On <%= article.created_at.strftime("%d  %B, %Y") %></small></p>
+                        <div class="card-body">
+                        <p class="card- text-muted" style="font-size:20px;"><%= article.title.truncate(250) %></p> 
+                        </div>
+                    </div>
+                        <div class="card-footer text-muted">
+                            <i class="fa fa-star mr-1" style="color:#ff9c1a;"></i><a class="" style=""><%= article.average_rating %></a>
+                            <a class="" style=""><%= link_to 'READ MORE' , article , style:"font-size:17px;color:#0146BF; float:right;" %></a>
+                        </div>
+                    </div>  
+                </div>
+            <% end %>
+        </div>
+        <div class="tab-pane fade" id="ex1-tabs-8" role="tabpanel" aria-labelledby="ex1-tab-8">
+            <% @government_articles.each do |article| %>
+              <div class="card mr-4" style="border:;">
+                    <div class="row g-0">
+                    <div class="col-md-3">
+                    <img src="<%= article.file %>" class="img-fluid rounded-start mt-3 ml-3" alt="..." style="height:200px; width:220px;"> 
+                    </div>
+                    <div class="col-md-9">
+                        <p style="color:green"><small class=" mr-2 mt-1" style="float:right;">Published On <%= article.created_at.strftime("%d  %B, %Y") %></small></p>
+                        <div class="card-body">
+                        <p class="card- text-muted" style="font-size:20px;"><%= article.title.truncate(250) %></p> 
+                        </div>
+                    </div>
+                        <div class="card-footer text-muted">
+                            <i class="fa fa-star mr-1" style="color:#ff9c1a;"></i><a class="" style=""><%= article.average_rating %></a>
+                            <a class="" style=""><%= link_to 'READ MORE' , article , style:"font-size:17px;color:#0146BF; float:right;" %></a>
+                        </div>
+                    </div>  
+                </div>
+            <% end %>
+        </div>
+        <div class="tab-pane fade" id="ex1-tabs-9" role="tabpanel" aria-labelledby="ex1-tab-9">
+            <% @health_articles.each do |article| %>
+              <div class="card mr-4" style="border:;">
+                    <div class="row g-0">
+                    <div class="col-md-3">
+                    <img src="<%= article.file %>" class="img-fluid rounded-start mt-3 ml-3" alt="..." style="height:200px; width:220px;"> 
+                    </div>
+                    <div class="col-md-9">
+                        <p style="color:green"><small class=" mr-2 mt-1" style="float:right;">Published On <%= article.created_at.strftime("%d  %B, %Y") %></small></p>
+                        <div class="card-body">
+                        <p class="card- text-muted" style="font-size:20px;"><%= article.title.truncate(250) %></p> 
+                        </div>
+                    </div>
+                        <div class="card-footer text-muted">
+                            <i class="fa fa-star mr-1" style="color:#ff9c1a;"></i><a class="" style=""><%= article.average_rating %></a>
+                            <a class="" style=""><%= link_to 'READ MORE' , article , style:"font-size:17px;color:#0146BF; float:right;" %></a>
+                        </div>
+                    </div>  
+                </div>
+            <% end %>
+        </div>
+        <div class="tab-pane fade" id="ex1-tabs-10" role="tabpanel" aria-labelledby="ex1-tab-10">
+            <% @business_articles.each do |article| %>
+              <div class="card mr-4" style="border:;">
+                    <div class="row g-0">
+                    <div class="col-md-3">
+                    <img src="<%= article.file %>" class="img-fluid rounded-start mt-3 ml-3" alt="..." style="height:200px; width:220px;"> 
+                    </div>
+                    <div class="col-md-9">
+                        <p style="color:green"><small class=" mr-2 mt-1" style="float:right;">Published On <%= article.created_at.strftime("%d  %B, %Y") %></small></p>
+                        <div class="card-body">
+                        <p class="card- text-muted" style="font-size:20px;"><%= article.title.truncate(250) %></p> 
+                        </div>
+                    </div>
+                        <div class="card-footer text-muted">
+                            <i class="fa fa-star mr-1" style="color:#ff9c1a;"></i><a class="" style=""><%= article.average_rating %></a>
+                            <a class="" style=""><%= link_to 'READ MORE' , article , style:"font-size:17px;color:#0146BF; float:right;" %></a>
+                        </div>
+                    </div>  
+                </div>
+            <% end %>
+        </div>
+        <div class="tab-pane fade" id="ex1-tabs-11" role="tabpanel" aria-labelledby="ex1-tab-11">
+            <% @automobile_articles.each do |article| %>
+              <div class="card mr-4" style="border:;">
+                    <div class="row g-0">
+                    <div class="col-md-3">
+                    <img src="<%= article.file %>" class="img-fluid rounded-start mt-3 ml-3" alt="..." style="height:200px; width:220px;"> 
+                    </div>
+                    <div class="col-md-9">
+                        <p style="color:green"><small class=" mr-2 mt-1" style="float:right;">Published On <%= article.created_at.strftime("%d  %B, %Y") %></small></p>
+                        <div class="card-body">
+                        <p class="card- text-muted" style="font-size:20px;"><%= article.title.truncate(250) %></p> 
+                        </div>
+                    </div>
+                        <div class="card-footer text-muted">
+                            <i class="fa fa-star mr-1" style="color:#ff9c1a;"></i><a class="" style=""><%= article.average_rating %></a>
+                            <a class="" style=""><%= link_to 'READ MORE' , article , style:"font-size:17px;color:#0146BF; float:right;" %></a>
+                        </div>
+                    </div>  
+                </div>
+            <% end %>
+        </div>
+        <div class="tab-pane fade" id="ex1-tabs-12" role="tabpanel" aria-labelledby="ex1-tab-12">
+            <% @education_articles.each do |article| %>
+              <div class="card mr-4" style="border:;">
+                    <div class="row g-0">
+                    <div class="col-md-3">
+                    <img src="<%= article.file %>" class="img-fluid rounded-start mt-3 ml-3" alt="..." style="height:200px; width:220px;"> 
+                    </div>
+                    <div class="col-md-9">
+                        <p style="color:green"><small class=" mr-2 mt-1" style="float:right;">Published On <%= article.created_at.strftime("%d  %B, %Y") %></small></p>
+                        <div class="card-body">
+                        <p class="card- text-muted" style="font-size:20px;"><%= article.title.truncate(250) %></p> 
+                        </div>
+                    </div>
+                        <div class="card-footer text-muted">
+                            <i class="fa fa-star mr-1" style="color:#ff9c1a;"></i><a class="" style=""><%= article.average_rating %></a>
+                            <a class="" style=""><%= link_to 'READ MORE' , article , style:"font-size:17px;color:#0146BF; float:right;" %></a>
+                        </div>
+                    </div>  
+                </div>
+            <% end %>
+        </div>
+        <div class="tab-pane fade" id="ex1-tabs-13" role="tabpanel" aria-labelledby="ex1-tab-13">
+            <% @entertainment_articles.each do |article| %>
+              <div class="card mr-4" style="border:;">
+                    <div class="row g-0">
+                    <div class="col-md-3">
+                    <img src="<%= article.file %>" class="img-fluid rounded-start mt-3 ml-3" alt="..." style="height:200px; width:220px;"> 
+                    </div>
+                    <div class="col-md-9">
+                        <p style="color:green"><small class=" mr-2 mt-1" style="float:right;">Published On <%= article.created_at.strftime("%d  %B, %Y") %></small></p>
+                        <div class="card-body">
+                        <p class="card- text-muted" style="font-size:20px;"><%= article.title.truncate(250) %></p> 
+                        </div>
+                    </div>
+                        <div class="card-footer text-muted">
+                            <i class="fa fa-star mr-1" style="color:#ff9c1a;"></i><a class="" style=""><%= article.average_rating %></a>
+                            <a class="" style=""><%= link_to 'READ MORE' , article , style:"font-size:17px;color:#0146BF; float:right;" %></a>
+                        </div>
+                    </div>  
+                </div>
+            <% end %>
+        </div>
+        <div class="tab-pane fade" id="ex1-tabs-14" role="tabpanel" aria-labelledby="ex1-tab-14">
+           <% @environment_articles.each do |article| %>
+              <div class="card mr-4" style="border:;">
+                    <div class="row g-0">
+                    <div class="col-md-3">
+                    <img src="<%= article.file %>" class="img-fluid rounded-start mt-3 ml-3" alt="..." style="height:200px; width:220px;"> 
+                    </div>
+                    <div class="col-md-9">
+                        <p style="color:green"><small class=" mr-2 mt-1" style="float:right;">Published On <%= article.created_at.strftime("%d  %B, %Y") %></small></p>
+                        <div class="card-body">
+                        <p class="card- text-muted" style="font-size:20px;"><%= article.title.truncate(250) %></p> 
+                        </div>
+                    </div>
+                        <div class="card-footer text-muted">
+                            <i class="fa fa-star mr-1" style="color:#ff9c1a;"></i><a class="" style=""><%= article.average_rating %></a>
+                            <a class="" style=""><%= link_to 'READ MORE' , article , style:"font-size:17px;color:#0146BF; float:right;" %></a>
+                        </div>
+                    </div>  
+                </div>
+            <% end %>
+        </div>
+        <div class="tab-pane fade" id="ex1-tabs-15" role="tabpanel" aria-labelledby="ex1-tab-15">
+            <% @economy_articles.each do |article| %>
+              <div class="card mr-4" style="border:;">
+                    <div class="row g-0">
+                    <div class="col-md-3">
+                    <img src="<%= article.file %>" class="img-fluid rounded-start mt-3 ml-3" alt="..." style="height:200px; width:220px;"> 
+                    </div>
+                    <div class="col-md-9">
+                        <p style="color:green"><small class=" mr-2 mt-1" style="float:right;">Published On <%= article.created_at.strftime("%d  %B, %Y") %></small></p>
+                        <div class="card-body">
+                        <p class="card- text-muted" style="font-size:20px;"><%= article.title.truncate(250) %></p> 
+                        </div>
+                    </div>
+                        <div class="card-footer text-muted">
+                            <i class="fa fa-star mr-1" style="color:#ff9c1a;"></i><a class="" style=""><%= article.average_rating %></a>
+                            <a class="" style=""><%= link_to 'READ MORE' , article , style:"font-size:17px;color:#0146BF; float:right;" %></a>
+                        </div>
+                    </div>  
+                </div>
+            <% end %>
+        </div>
+        </div>
       </div>
     </div>
   </div>  

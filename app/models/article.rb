@@ -1,15 +1,14 @@
 class Article < ApplicationRecord
   belongs_to :user
-  has_many_attached :file
+  has_many_attached :file , dependent: :destroy
   mount_uploader :file, FileUploader
-  has_rich_text :content
   #has_many :comments, dependent: :destroy
   has_many :article_views
   
   validates :title, presence: true
   validates :content, presence: true
   
-  enum article_type: [:sport, :politics, :government, :education, :health, :environment, :economy, :business, :tech, :entertainment, :automobile]  
+  enum :article_type , {sport: 0, politics: 1, government: 2, education: 3, health: 4, environment: 5, economy: 6, business: 7, tech: 8, entertainment: 9, automobile: 10}  
   has_many :likes, dependent: :destroy
   has_many :bookmarks, dependent: :destroy 
   has_many :ratings, dependent: :destroy

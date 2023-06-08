@@ -8,7 +8,18 @@ class ArticlesController < ApplicationController
     if user_signed_in? 
     @profile = current_user.profile
     @articles_today = Article.where("DATE(created_at) = ?", Date.today)
-    @articles_likes = Article.left_joins(:likes).group(:id).order('COUNT(likes.id) DESC') 
+    @articles_likes = Article.left_joins(:likes).group(:id).order('COUNT(likes.id) DESC')
+    @sport_articles = Article.where(article_type: 'sport')
+    @politics_articles = Article.where(article_type: 'politics')
+    @technology_articles = Article.where(article_type: 'tech')
+    @government_articles = Article.where(article_type: 'government')
+    @health_articles = Article.where(article_type: 'health')
+    @business_articles = Article.where(article_type: 'business')
+    @automobile_articles = Article.where(article_type: 'automobile')
+    @education_articles = Article.where(article_type: 'education')
+    @entertainment_articles = Article.where(article_type: 'entertainment')
+    @environment_articles = Article.where(article_type: 'environment')
+    @economy_articles = Article.where(article_type: 'economy')
     end
   end
 
